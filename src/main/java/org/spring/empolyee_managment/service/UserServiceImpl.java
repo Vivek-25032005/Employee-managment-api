@@ -31,14 +31,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String loginUser(User user) {
-        Optional<UserEntity> existingUser = userRepository.findByEmail(user.getEmail());
+        Optional<UserEntity> existingUser = Optional.empty();
+        if (user.getEmail() != null && !user.getEmail().isBlank()) {
+            existingUser = userRepository.findByEmail(user.getEmail());
+        }
+        if (existingUser.isEmpty() && user.getName() != null && !user.getName().isBlank()) {
+            existingUser = userRepository.findByName(user.getName());
+        }
+
         if (existingUser.isEmpty()) {
-            return "Invalid email or password";
+            return "Invalid email/name or password";
         }
 
         UserEntity entity = existingUser.get();
         if (!entity.getPassword().equals(user.getPassword())) {
-            return "Invalid email or password";
+            return "Invalid email/name or password";
         }
 
         return "Login successful";

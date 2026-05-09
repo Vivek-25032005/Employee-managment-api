@@ -23,7 +23,9 @@ public class UserServiceImpl implements UserService {
         }
 
         UserEntity entity = new UserEntity();
-        BeanUtils.copyProperties(user, entity);
+        entity.setName(user.getName());
+        entity.setEmail(user.getEmail());
+        entity.setPassword(user.getPassword());
 
         userRepository.save(entity);
         return "User registered successfully";

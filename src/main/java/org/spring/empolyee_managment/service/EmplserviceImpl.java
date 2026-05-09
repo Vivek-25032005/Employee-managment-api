@@ -1,4 +1,4 @@
-package org.spring.empolyee_managment;
+package org.spring.empolyee_managment.service;
 
 import java.util.List;
 
@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import org.spring.empolyee_managment.entity.EmployeeEntity;
+import org.spring.empolyee_managment.model.Employee;
+import org.spring.empolyee_managment.repository.EmployeeRepository;
 
 @Service
 public class EmplserviceImpl implements Empservice {

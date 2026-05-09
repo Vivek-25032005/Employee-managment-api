@@ -1,4 +1,4 @@
-package org.spring.empolyee_managment;
+package org.spring.empolyee_managment.annotation;
 
 public @interface table {
 

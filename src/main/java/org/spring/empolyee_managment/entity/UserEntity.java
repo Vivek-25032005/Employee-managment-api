@@ -1,4 +1,4 @@
-package org.spring.empolyee_managment;
+package org.spring.empolyee_managment.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,14 +9,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="emp_db")
-public class EmployeeEntity {
-    
+@Table(name = "users")
+public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-    private String phone;
     private String email;
+    private String password;
 }
